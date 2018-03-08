@@ -24,9 +24,9 @@ textarea {
     max-width: 280px;
 }
 
-/* Custom */
+/********** Custom **********/
 
-/*Universal ------------------------------------------------------------------------*/
+/*Universal*/
 body {
     margin: 0;
 }
@@ -109,18 +109,48 @@ button {
 .userInput {
     display: flex;
     margin-left: 25%;
-    margin-top: 7%;
+    margin-top: 4.6%;
     color: white;
 }
 
 #searchInput {
     background-color: Transparent;
-    background-repeat: no-repeat;
     border: none;
-    overflow: hidden;
-    outline: none;
-    text-underline-position: auto;
+    color: white;
 }
+
+/* index */
+
+#stats {
+    padding-top: 1%;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+#searchBook {
+    padding: 2%;
+}
+
+/* Login */
+
+#loginForm {
+
+    padding: 2%;
+}
+
+#loginForm p {
+    margin-top: 4%;
+    margin-left: 13.5%;
+}
+/*Search section ----------------------------------------------------------------*/
+
+#search {
+    padding: 2%;
+}
+
+    #search h2 {
+        margin-bottom: 2%;
+    }
 
 .list-group-item img {
     width: 128px;
@@ -154,40 +184,32 @@ button {
     outline: none;
 }
 
-/* index */
-
-#stats {
-    padding-top: 1%;
-    border-top: solid 1px;
-    border-bottom: solid 1px;
-}
-
-#searchBook {
-    padding: 2%;
-}
-
-/* Login */
-#loginInput {
-    margin-top: -10%;
-}
-
-#loginForm {
-    margin: 0;
-}
-/*Search section ----------------------------------------------------------------*/
-
-#search {
-    padding: 2%;
-}
-
-    #search h2 {
-        margin-bottom: 2%;
-    }
-
-/*Device width specific--------------------------------------------------------*/
+/*Responsive--------------------------------------------------------*/
 
 @media (max-width: 992px) {
     button {
         margin-right: 0%;
     }
+
+    #loginForm p {
+        margin-left: 0%;
+    }
+}
+
+@media (max-width: 768px) {
+    #mainNav .nav li a {
+        margin-left: 2%;
+    }
+
+    #searchInput {
+        margin-left: -30%;
+    }
+}
+
+
+@media (max-width: 720px) {
+
+}
+
+@media (max-width: 576px) {
 }
