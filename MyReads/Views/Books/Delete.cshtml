@@ -1,0 +1,80 @@
+﻿@model MyReads.Models.Books
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Books</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_Pages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_Pages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_ImageLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_ImageLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_InfoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_InfoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categories.Category_Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories.Category_Genre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,193 @@
+﻿
+button {
+    float: right;
+    margin-right: -6%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Custom */
+
+/*Universal ------------------------------------------------------------------------*/
+body {
+    margin: 0;
+}
+
+#mainNav {
+    background-color: #222222;
+    border-color: transparent;
+}
+
+    #mainNav .navbar-brand {
+        color: #fed136;
+        font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    }
+
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand.active {
+    color: #fec503;
+}
+
+#mainNav .navbar-collapse {
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+#mainNav .navbar-toggle {
+    background-color: #fed136;
+    border-color: #fed136;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+}
+
+    #mainNav .navbar-toggle:hover,
+    #mainNav .navbar-toggle:focus {
+        background-color: #fed136;
+    }
+
+#mainNav .nav li a {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: white;
+}
+
+    #mainNav .nav li a:hover,
+    #mainNav .nav li a:focus {
+        color: #fed136;
+        outline: none;
+    }
+
+#mainNav .navbar-nav > .active > a {
+    border-radius: 0;
+    color: white;
+    background-color: #fed136;
+}
+
+    #mainNav .navbar-nav > .active > a:hover,
+    #mainNav .navbar-nav > .active > a:focus {
+        color: white;
+        background-color: #fec503;
+    }
+
+.intro-lead-in {
+    margin: 0;
+}
+
+button {
+    float: right;
+    margin-right: -6%;
+}
+
+.white,
+.white a {
+    color: #fff;
+}
+
+.userInput {
+    display: flex;
+    margin-left: 25%;
+    margin-top: 7%;
+    color: white;
+}
+
+#searchInput {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-underline-position: auto;
+}
+
+.list-group-item img {
+    width: 128px;
+    height: 192px;
+    float: left;
+    margin-right: 5%;
+}
+
+#bookInfo {
+    margin-left: 5%;
+    height: 192px;
+    width: 50%;
+    position: relative;
+}
+
+    #bookInfo p {
+        margin-bottom: 10%
+    }
+
+    #bookInfo a {
+        position: absolute;
+        bottom: 0;
+    }
+
+.iconBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+/* index */
+
+#stats {
+    padding-top: 1%;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+#searchBook {
+    padding: 2%;
+}
+
+/* Login */
+#loginInput {
+    margin-top: -10%;
+}
+
+#loginForm {
+    margin: 0;
+}
+/*Search section ----------------------------------------------------------------*/
+
+#search {
+    padding: 2%;
+}
+
+    #search h2 {
+        margin-bottom: 2%;
+    }
+
+/*Device width specific--------------------------------------------------------*/
+
+@media (max-width: 992px) {
+    button {
+        margin-right: 0%;
+    }
+}

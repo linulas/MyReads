@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Delete User";
+}
+
+<h2>Warning! You are about to delete your acccount. All associated data will be lost</h2>
+
+<h3>Are you sure you want to delete your account @User.Identity.Name?</h3>
+<div>
+    @using (Html.BeginForm("DeleteUser", "Manage", new { userName = User.Identity.Name }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to account", "Index")
+        </div>
+    }
+</div>

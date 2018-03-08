@@ -1,0 +1,32 @@
+﻿@model MyReads.Models.Books
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+
+    <div class="form-horizontal">
+        <h4>Add Books</h4>
+        <hr />
+        <!-- User input -->
+        @Html.TextBox("searchInput", null, new { @Type = "Text", @Placeholer = "Title or Author" })
+        <!-- user submit -->
+        <button class="icon iconBtn" id="searchBtn" onclick="bookSearch()" value="@ViewBag.Search"><span class=""><i class="glyphicon glyphicon-search"></i></span></button>
+        <!-- Search results Section -->
+        <!-- Search result Section -->
+        <section id="search">
+            <h2 class="text-center">Search results</h2>
+            <div class="container">
+                <!-- display searched books -->
+                <div id="results" class="list-group col-md-12"></div>
+            </div>
+        </section>
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Books", new { userName = User.Identity.Name }, new { @class = "" })
+    </div>
+
+</div>
