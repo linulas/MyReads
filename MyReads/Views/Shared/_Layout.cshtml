@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title - My Reads</title>
     <!--Custom Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
                             <div class="userInput">
                                 <input id="searchInput" placeholder="Title or Author" value="@ViewBag.Search" autofocus />
                                 <!-- user submit -->
-                                <button class="icon iconBtn" id="searchBtn" onclick="bookSearch()"><span class="white-custom"><i class="glyphicon glyphicon-search" id="searchIcon"></i></span></button>
+                                <button for="searchInput" class="icon iconBtn" id="searchBtn" onclick="bookSearch()"><span class="white-custom"><i class="glyphicon glyphicon-search" id="searchIcon"></i></span></button>
                             </div>
                         </li>
                     </ul>

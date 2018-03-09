@@ -41,14 +41,14 @@ body {
     color: #fed136;
 }
 
+.textbox {
+    font-size: 14px !important;
+}
+
 p {
     font-size: 14px;
     line-height: 1.75;
 }
-
-    p.large {
-        font-size: 16px;
-    }
 
 a,
 a:hover,
@@ -111,8 +111,24 @@ h6 {
     border-color: #f6bf01;
 }
 
-.form-control, td {
+.form-control {
     font-size: 14px !important;
+}
+
+th {
+    font-size: 16px !important;
+}
+
+td {
+    font-size: 12px !important;
+}
+
+.rating-xs {
+    font-size: 16px;
+}
+
+.small {
+    font-size: 10px !important;
 }
 
 /*Navbar*/
@@ -198,14 +214,34 @@ h6 {
 
 /* index */
 
+#indexCard{
+    padding-top: 70px;
+}
+
 #stats {
-    padding-top: 1%;
-    border-top: solid 1px;
-    border-bottom: solid 1px;
 }
 
 #searchBook {
-    padding: 2%;
+    position: relative;
+    height: 230px;
+}
+
+#collectionSearch {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#searchBook .textbox{
+    padding-top: 4%;
+}
+
+#searchBook .btn {
+    float: right;
+}
+
+#overview {
+    padding-top: 20px;
 }
 
 /* Login */
@@ -270,6 +306,21 @@ h6 {
     outline: none;
 }
 
+/* Edit */
+
+#editCard {
+    padding: 2%;
+    position: relative;
+}
+
+#editCard .control-label {
+    margin-top: 1.5%;
+}
+
+#editCard .form-control {
+    margin-left: 1.5%;
+}
+
 /*Responsive--------------------------------------------------------*/
 
 @media (max-width: 992px) {
@@ -279,6 +330,49 @@ h6 {
 
     #loginForm p {
         margin-left: 0;
+    }
+
+    /*index*/
+
+    #indexCard {
+        padding-top: 70px;
+    }
+
+    #stats {
+        padding: 2%;
+    }
+
+    #searchBook {
+        height: 110px
+    }
+
+    #collectionSearch {
+        right: auto;
+        left: 0;
+    }
+
+        #searchBook p,
+        #searchBook h5 {
+            display: none;
+        }
+
+        #searchBook .btn {
+            float: left;
+            margin-top: 5%;
+        }
+
+    #overview {
+        padding-top: 20px;
+    }
+
+    /*edit*/
+
+    #editCard img {
+       position: absolute;
+       right: 0;
+       top: 0;
+       margin-right: 5%;
+       margin-top: 10%
     }
 }
 
@@ -294,8 +388,13 @@ h6 {
 
 
 @media (max-width: 720px) {
-
+    #editCard img {
+        margin-top: 15%
+    }
 }
 
 @media (max-width: 576px) {
+    #editCard img {
+        display: none;
+    }
 }

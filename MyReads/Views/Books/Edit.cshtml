@@ -11,9 +11,9 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Books</h4>
-        <hr />
+<div class="container card" id="editCard">
+    <h5 class="card-title">Books</h5>
+    <div class="col-md-10 card-body">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Book_ID)
 
@@ -34,22 +34,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Book_Genre, "Book_Genre", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Book_Genre", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Book_Genre, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Book_Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Book_Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Book_Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Book_Pages, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Book_Pages, new { htmlAttributes = new { @class = "form-control" } })
@@ -58,32 +42,20 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Book_ImageLink, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Book_ImageLink, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Book_ImageLink, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Book_InfoLink, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Book_InfoLink, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Book_InfoLink, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-custom" />
+            </div>
+        </div>
+        <div class="card-footer row">
+            <div class="">
+                @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <img src="@Model.Book_ImageLink" alt="no image" class="" />
+    
 </div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
