@@ -37,6 +37,7 @@ namespace MyReads
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/mdb.min.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/star-rating.min.css",
                       "~/Content/agency.min.css",
