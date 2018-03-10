@@ -4,22 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Books</h4>
+<div class="container card" id="bookDetails">
+    <h5 class="card-title">@Html.DisplayFor(model => model.Book_Title)</h5>
     <hr />
-    <dl class="dl-horizontal">
+    <span class="col-md-2">
+        <img src="@Model.Book_ImageLink" alt="no image" />
+    </span>
+    <dl class="dl-horizontal col-md-10">
         <dt>
-            @Html.DisplayNameFor(model => model.Book_Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Book_Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Book_Author)
+            Author
         </dt>
 
         <dd>
@@ -27,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Book_Description)
+            Description
         </dt>
 
         <dd>
@@ -35,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Book_Pages)
+            Pages
         </dt>
 
         <dd>
@@ -43,32 +36,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Book_ImageLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Book_ImageLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Book_InfoLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Book_InfoLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Categories.Category_Genre)
+            Genre
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Categories.Category_Genre)
         </dd>
-
     </dl>
+    <p class="row">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Book_ID }) |
+        @Html.ActionLink("Back to List", "Index", "Books", new { userName = User.Identity.Name }, new { @class = "" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Book_ID }) |
-    @Html.ActionLink("Back to List", "Index", "Books", new { userName = User.Identity.Name }, new { @class = "" })
-</p>

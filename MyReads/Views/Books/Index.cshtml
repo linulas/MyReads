@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<div class="body-content">
+<div class="container">
 
     <div id="indexCard">
 
@@ -39,14 +39,14 @@
                 <th>
                     Title
                 </th>
-                <th>
-                    @Html.ActionLink("Author", "SortOrFilter", new { sortOrder = ViewBag.SortBookAuthor, currentFilter = ViewBag.CurrentFilter })
+                <th class="table-hover">
+                    @Html.ActionLink("Author", "SortOrFilter", new { sortOrder = ViewBag.SortBookAuthor, currentFilter = ViewBag.CurrentFilter }, new { @class="table-hover" })
                 </th>
-                <th>
-                    @Html.ActionLink("Genre", "SortOrFilter", new { sortOrder = ViewBag.SortBookGenre, currentFilter = ViewBag.CurrentFilter })
+                <th class="table-hover">
+                    @Html.ActionLink("Genre", "SortOrFilter", new { sortOrder = ViewBag.SortBookGenre, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
                 </th>
-                <th>
-                    @Html.ActionLink("Rating", "SortOrFilter", new { sortOrder = ViewBag.SortBookRating, currentFilter = ViewBag.CurrentFilter })
+                <th class="table-hover">
+                    @Html.ActionLink("Rating", "SortOrFilter", new { sortOrder = ViewBag.SortBookRating, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
                 </th>
                 <th>
                     Options
@@ -70,10 +70,10 @@
                             <input id="@item.UB_BookID.ToString()" type="text" class="rating rating-loading" value="@item.UB_Rating.ToString().Replace(",", ".")" data-size="xs" title="">
                         </div>
                     </td>
-                    <td class="small">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Books.Book_ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Books.Book_ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Books.Book_ID })
+                    <td class="small table-hover">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Books.Book_ID}, new { @class = "table-hover" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Books.Book_ID}, new { @class = "table-hover" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Books.Book_ID}, new { @class = "table-hover" })
                     </td>
                 </tr>
             }

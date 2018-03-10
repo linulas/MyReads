@@ -84,6 +84,10 @@ h6 {
     margin: 0;
 }
 
+.table-hover:hover {
+    color: #fec503;
+}
+
 .btn-custom {
     color: white;
     background-color: #fed136 !important;
@@ -212,6 +216,24 @@ td {
     color: white;
 }
 
+/*manage*/
+#registerForm {
+    margin-top: 7%;
+}
+
+.card {
+    padding: 2%;
+    margin-top: 7%;
+}
+
+#deleteConfirm {
+    margin-top: 7%;
+}
+
+#deleteConfirm p {
+    margin-top: 5%;
+}
+
 /* index */
 
 #indexCard{
@@ -219,6 +241,7 @@ td {
 }
 
 #stats {
+    margin-top: 0;
 }
 
 #searchBook {
@@ -244,10 +267,25 @@ td {
     padding-top: 20px;
 }
 
+/*details*/
+#bookDetails p {
+    margin-left: 1.5%;
+}
+
+/*delete book*/
+
+#deleteHeading {
+    margin-top: 50px;
+}
+
+#deleteBookConfirm .form-actions {
+    margin-left: 0.9%;
+}
+
 /* Login */
 
 #loginForm {
-
+    margin-top: 2%;
     padding: 2%;
 }
 
@@ -324,12 +362,13 @@ td {
 /*Responsive--------------------------------------------------------*/
 
 @media (max-width: 992px) {
-    button {
-        margin-right: 0;
+    /*login*/
+    #loginForm p {
+        margin-left: 2%;
     }
 
-    #loginForm p {
-        margin-left: 0;
+    button {
+        margin-right: 0;
     }
 
     /*index*/
@@ -384,6 +423,10 @@ td {
     #searchInput {
         margin-left: -30%;
     }
+
+    #registerForm {
+        margin-top: 10%;
+    }
 }
 
 
@@ -396,5 +439,8 @@ td {
 @media (max-width: 576px) {
     #editCard img {
         display: none;
+    }
+    #registerForm {
+        margin-top: 15%;
     }
 }

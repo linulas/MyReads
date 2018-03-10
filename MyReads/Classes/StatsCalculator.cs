@@ -17,8 +17,6 @@ namespace MyReads.Classes
     /// </summary>
     public class StatsCalculator
     {
-        //Fields-------------------------------------------------------------------------------------------
-        private List<Books> booksList;
         private int totalpages;
         private string mostCommonAuthor;
         private string mostCommonGenre;
@@ -26,7 +24,7 @@ namespace MyReads.Classes
 
         public StatsCalculator()
         {
-            booksList = new List<Books>();
+            Books = new List<Books>();
             totalpages = 0;
             mostCommonAuthor = "none";
             mostCommonGenre = "none";
@@ -40,7 +38,7 @@ namespace MyReads.Classes
         {
             get
             {
-                return booksList.Count;
+                return Books.Count;
             }
         }
 
@@ -83,17 +81,7 @@ namespace MyReads.Classes
         /// <summary>
         /// Gets the BookManager instance
         /// </summary>
-        public List<Books> Books
-        {
-            get
-            {
-                return booksList;
-            }
-            set
-            {
-                booksList = value;
-            }
-        }
+        public List<Books> Books { get; set; }
 
         //Methods------------------------------------------------------------------------------------------
 
@@ -105,12 +93,12 @@ namespace MyReads.Classes
         {
             totalpages = 0;
 
-            for(int i = 0; i < booksList.Count; i++)
+            for(int i = 0; i < Books.Count; i++)
             {
-                if (booksList[i].Book_Pages.HasValue)
+                if (Books[i].Book_Pages.HasValue)
                 {
-                    int pages = Convert.ToInt32(booksList[i].Book_Pages);
-                    totalpages = pages;
+                    int pages = Convert.ToInt32(Books[i].Book_Pages);
+                    totalpages = totalpages + pages;
                 }
             }
         }
@@ -122,10 +110,10 @@ namespace MyReads.Classes
         {
             try
             {
-                string[] authors = new string[booksList.Count];
-                for(int i = 0; i < booksList.Count; i++)
+                string[] authors = new string[Books.Count];
+                for(int i = 0; i < Books.Count; i++)
                 {
-                    authors[i] = booksList[i].Book_Author;
+                    authors[i] = Books[i].Book_Author;
                 }
 
                 var nameGroup = authors.GroupBy(x => x);
@@ -146,10 +134,10 @@ namespace MyReads.Classes
         {
             try
             {
-                string[] genres = new string[booksList.Count];
-                for (int i = 0; i < booksList.Count; i++)
+                string[] genres = new string[Books.Count];
+                for (int i = 0; i < Books.Count; i++)
                 {
-                    genres[i] = booksList[i].Categories.Category_Genre;
+                    genres[i] = Books[i].Categories.Category_Genre;
                 }
 
                 var nameGroup = genres.GroupBy(x => x);
