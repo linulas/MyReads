@@ -4,80 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<div class="container">
-
-    <div id="indexCard">
-
-        <div id="stats" class="card col-md-6">
-            <h5 class="card-title">Stats</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><p>Total pages: @Model.Pages </p></li>
-                <li class="list-group-item"><p>Most common Author: @Model.Author </p></li>
-                <li class="list-group-item"><p>Most common Genre: @Model.Genre </p></li>
-            </ul>
-        </div>
-        <div id="searchBook" class="">
-            <div class="col-md-6">
-                <h5 class="card-title">Search</h5>
-                <p class="card-text">Search your collection bellow and search books to add in the navbar</p>
-            </div>
-            @using (Html.BeginForm("SortOrFilter", "Books"))
-            {
-            <div class="col-md-6" id="collectionSearch">
-                <span class="">
-                    @Html.TextBox("SearchString", null, new { @placeholder = "Search my collection", @class = "textbox col-md-3" })
-                    <input type="submit" name="Search" value="Search" class="btn btn-custom" />
-                </span>
-            </div> 
-            }
+<div class="body-content">
+    <div id="stats" class="card">
+        <h4 class="card-title text-center">Stats</h4>
+        <div class="card-body">
+            <p><strong>Total pages: </strong> <span>@Model.Pages</span></p>
+            <p><strong>Most common Author: </strong> <span>@Model.Author</span> </p>
+            <p><strong>Most common Genre: </strong> <span>@Model.Genre</span> </p>
         </div>
     </div>
+    <div id="overview" class="card">
 
-    <div id="overview">
-        <table class="table card">
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th class="table-hover">
-                    @Html.ActionLink("Author", "SortOrFilter", new { sortOrder = ViewBag.SortBookAuthor, currentFilter = ViewBag.CurrentFilter }, new { @class="table-hover" })
-                </th>
-                <th class="table-hover">
-                    @Html.ActionLink("Genre", "SortOrFilter", new { sortOrder = ViewBag.SortBookGenre, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
-                </th>
-                <th class="table-hover">
-                    @Html.ActionLink("Rating", "SortOrFilter", new { sortOrder = ViewBag.SortBookRating, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
-                </th>
-                <th>
-                    Options
-                </th>
-            </tr>
+        <h4 class="card-title text-center">My Book Collection</h4>
 
-            @foreach (var item in Model.UserBooks)
-            {
+        @using (Html.BeginForm("SortOrFilter", "Books"))
+        {
+            <div class="row" id="searchBook">
+                @Html.TextBox("SearchString", null, new { @placeholder = "Search my collection", @class = "textbox" })
+                <input type="submit" name="Search" value="Search" class="btn btn-custom" />
+            </div>
+        }
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Books.Book_Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Books.Book_Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Books.Categories.Category_Genre)
-                    </td>
-                    <td>
-                        <div>
-                            <input id="@item.UB_BookID.ToString()" type="text" class="rating rating-loading" value="@item.UB_Rating.ToString().Replace(",", ".")" data-size="xs" title="">
-                        </div>
-                    </td>
-                    <td class="small table-hover">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Books.Book_ID}, new { @class = "table-hover" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Books.Book_ID}, new { @class = "table-hover" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Books.Book_ID}, new { @class = "table-hover" })
-                    </td>
+                    <th id="title">
+                        Title
+                    </th>
+                    <th class="table-hover" id="author">
+                        @Html.ActionLink("Author", "SortOrFilter", new { sortOrder = ViewBag.SortBookAuthor, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
+                    </th>
+                    <th class="table-hover" id="genre">
+                        @Html.ActionLink("Genre", "SortOrFilter", new { sortOrder = ViewBag.SortBookGenre, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
+                    </th>
+                    <th class="table-hover" id="rating">
+                        @Html.ActionLink("Rating", "SortOrFilter", new { sortOrder = ViewBag.SortBookRating, currentFilter = ViewBag.CurrentFilter }, new { @class = "table-hover" })
+                    </th>
+                    <th id="option">
+                        Options
+                    </th>
                 </tr>
-            }
-
+            </thead>
+            <tbody>
+                @foreach (var item in Model.UserBooks)
+                {
+                    <tr>
+                        <td headers="title">
+                            @Html.DisplayFor(modelItem => item.Books.Book_Title)
+                        </td>
+                        <td headers="author">
+                            @Html.DisplayFor(modelItem => item.Books.Book_Author)
+                        </td>
+                        <td headers="genre">
+                            @Html.DisplayFor(modelItem => item.Books.Categories.Category_Genre)
+                        </td>
+                        <td headers="rating">
+                            <div>
+                                <input id="@item.UB_BookID.ToString()" type="text" class="rating rating-loading" value="@item.UB_Rating.ToString().Replace(",", ".")" data-size="xs" title="">
+                            </div>
+                        </td>
+                        <td class="small table-hover" headers="option">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Books.Book_ID }, new { @class = "table-hover" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Books.Book_ID }, new { @class = "table-hover" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Books.Book_ID }, new { @class = "table-hover" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 </div>

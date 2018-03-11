@@ -59,7 +59,7 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: black;
 }
 
     a:hover,
@@ -88,8 +88,17 @@ h6 {
     color: #fec503;
 }
 
+.iconBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
 .btn-custom {
-    color: white;
+    color: black !important;
     background-color: #fed136 !important;
     border-color: #fed136;
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -110,7 +119,7 @@ h6 {
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active {
-    color: white;
+    color: black;
     background-color: #fec503;
     border-color: #f6bf01;
 }
@@ -132,7 +141,7 @@ td {
 }
 
 .small {
-    font-size: 10px !important;
+    font-size: 11px !important;
 }
 
 /*Navbar*/
@@ -154,9 +163,6 @@ td {
     color: #fec503;
 }
 
-#mainNav .navbar-collapse {
-    border-color: rgba(255, 255, 255, 0.02);
-}
 
 #mainNav .navbar-toggle {
     background-color: #fed136;
@@ -203,9 +209,13 @@ td {
     color: #fff;
 }
 
+.contrast {
+    color: blue !important;
+}
+
 .userInput {
     display: flex;
-    margin-left: 25%;
+    margin-left: 35%;
     margin-top: 4.6%;
     color: white;
 }
@@ -236,35 +246,29 @@ td {
 
 /* index */
 
-#indexCard{
-    padding-top: 70px;
+#stats h4 {
+    margin-bottom: 2%;
 }
 
-#stats {
-    margin-top: 0;
+#stats p {
+    display: inline;
+    padding: 2%;
+}
+
+#stats .card-body {
+    text-align:center;
 }
 
 #searchBook {
-    position: relative;
-    height: 230px;
-}
-
-#collectionSearch {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-#searchBook .textbox{
-    padding-top: 4%;
+    padding: 2%
 }
 
 #searchBook .btn {
-    float: right;
+    padding: 5px;
 }
 
 #overview {
-    padding-top: 20px;
+    margin-top: 2%;
 }
 
 /*details*/
@@ -302,47 +306,43 @@ td {
     #search h2 {
         margin-bottom: 2%;
     }
-
-.list-group-item img {
-    width: 128px;
-    height: 192px;
-    float: left;
-    margin-right: 5%;
+#results .card {
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    width: 32%;
+    height: 350px;
 }
 
-#bookInfo {
-    margin-left: 5%;
-    height: 192px;
-    width: 50%;
+#results .wrapper {
     position: relative;
 }
 
-    #bookInfo p {
-        margin-bottom: 10%
-    }
+#searchControls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2%;
+    margin-top: 3%;
+}
 
-    #bookInfo a {
+.list-group-item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45%;
+    margin-top: 4%;
+}
+
+#bookInfo {
+    margin-left: 40%;
+}
+
+    #results a {
         position: absolute;
+        left: 0;
         bottom: 0;
+        width: 95%;
     }
-
-.iconBtn {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
-
-#searchIcon {
-    background-color: Transparent !important;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
 
 /* Edit */
 
@@ -361,6 +361,12 @@ td {
 
 /*Responsive--------------------------------------------------------*/
 
+@media (max-width: 1200px) {
+    .list-group-item img {
+        width: 108px;
+    }
+}
+
 @media (max-width: 992px) {
     /*login*/
     #loginForm p {
@@ -369,39 +375,6 @@ td {
 
     button {
         margin-right: 0;
-    }
-
-    /*index*/
-
-    #indexCard {
-        padding-top: 70px;
-    }
-
-    #stats {
-        padding: 2%;
-    }
-
-    #searchBook {
-        height: 110px
-    }
-
-    #collectionSearch {
-        right: auto;
-        left: 0;
-    }
-
-        #searchBook p,
-        #searchBook h5 {
-            display: none;
-        }
-
-        #searchBook .btn {
-            float: left;
-            margin-top: 5%;
-        }
-
-    #overview {
-        padding-top: 20px;
     }
 
     /*edit*/
@@ -413,7 +386,24 @@ td {
        margin-right: 5%;
        margin-top: 10%
     }
+
+    /*search*/
+    #results .card {
+        width: 45%;
+        height: 250px;
+    }
+
+    .list-group-item img {
+        width: 128px;
+    }
+
+    #bookInfo {
+        float: right;
+        margin-right: 2%;
+    }
 }
+
+
 
 @media (max-width: 768px) {
     #mainNav .nav li a {
@@ -434,6 +424,10 @@ td {
     #editCard img {
         margin-top: 15%
     }
+    /*search*/
+    .list-group-item img {
+        width: 120px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -442,5 +436,25 @@ td {
     }
     #registerForm {
         margin-top: 15%;
+    }
+
+    #results .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 336px) {
+    #results .card {
+        height: 220px;
+        margin-bottom:5%;
+    }
+
+
+    .list-group-item img {
+        display: none;
+    }
+
+    #bookInfo {
+        margin-right: 50%;
     }
 }

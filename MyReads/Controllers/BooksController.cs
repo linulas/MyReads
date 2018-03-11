@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -47,11 +48,12 @@ namespace MyReads.Controllers
             if (userBooks.Count() > 0)
             {
                 List <Books> booksList = new List<Books>();
+                
                 foreach (var userBook in userBooks)
                 {
                     booksList.Add(userBook.Books);
                 }
-                
+                Session["userBooks"] = booksList;
                 statsCalculator.Books = booksList;
             }
             ViewModel index = new ViewModel();
@@ -108,7 +110,12 @@ namespace MyReads.Controllers
                     books = books.OrderBy(b => b.Books.Book_Author);
                     break;
             }
+            if(Session["userBooks"] != null)
+            {
+                statsCalculator.Books = Session["userBooks"] as List<Books>;
+            }
             ViewModel index = new ViewModel();
+            index.SetStats(statsCalculator.TotalPages, statsCalculator.FavouriteAuthor, statsCalculator.FavouriteGenre);
             index.UserBooks = books.ToList();
             return View("Index", index);
         }
@@ -246,8 +253,18 @@ namespace MyReads.Controllers
                     userBook.Books.Book_Genre = dbCategoryCheck.Category_ID;
                 }
             }
+            if (!string.IsNullOrEmpty(userBook.Books.Book_Description))
+            {
+                if (userBook.Books.Book_Description.Length > 2000)
+                {
+                    Debug.WriteLine("Description too long: " + userBook.Books.Book_Description.Length);
+                    userBook.Books.Book_Description = userBook.Books.Book_Description.Substring(0, Math.Min(userBook.Books.Book_Description.Length, 1900));
+                    Debug.WriteLine("Trimmed: " + userBook.Books.Book_Description.Length);
+                }
+            }
+            
 
-            userBook.Books.Book_Description = userBook.Books.Book_Description.Replace("'", "''");
+            //userBook.Books.Book_Description = userBook.Books.Book_Description.Replace("'", "''");
 
             Debug.WriteLine("");
             Debug.WriteLine(userBook.Books.Book_Title);
@@ -258,13 +275,29 @@ namespace MyReads.Controllers
             Debug.WriteLine(userBook.Books.Book_ImageLink);
             Debug.WriteLine(userBook.Books.Book_InfoLink);
             Debug.WriteLine("");
-            if (ModelState.IsValid)
+            try
             {
-                db.Users.First(u => u.User_Name == currentUser).UserBooks.Add(userBook);
-                db.SaveChanges();
-                return View();
+                if (ModelState.IsValid)
+                {
+                    db.Users.First(u => u.User_Name == currentUser).UserBooks.Add(userBook);
+                    db.SaveChanges();
+                    return View();
+                }
             }
-
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Debug.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
             return View();
         }
 

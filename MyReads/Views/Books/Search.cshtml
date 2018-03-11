@@ -8,18 +8,12 @@
 
     <div class="form-horizontal">
         <h4>Add Books</h4>
-        <hr />
-        <!-- User input -->
-        @Html.TextBox("searchInput", null, new { @Type = "Text", @Placeholer = "Title or Author" })
-        <!-- user submit -->
-        <button class="icon iconBtn" id="searchBtn" onclick="bookSearch()" value="@ViewBag.Search"><span class=""><i class="glyphicon glyphicon-search"></i></span></button>
-        <!-- Search results Section -->
         <!-- Search result Section -->
         <section id="search">
             <h2 class="text-center">Search results</h2>
             <div class="container">
                 <!-- display searched books -->
-                <div id="results" class="list-group col-md-12"></div>
+                <div id="results" class="card-group list-group col-md-12"></div>
             </div>
         </section>
     </div>

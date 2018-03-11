@@ -5,8 +5,8 @@ function bookSearch() {
     // store user input
     var search = document.getElementById("searchInput").value;
 
-    if (!$('#results').length && search != "") {
-        console.log("Redirecting...")
+    if (!$('#results').length && search !== "") {
+        console.log("Redirecting...");
         //Get search page
         $.ajax({
             type: "POST",
@@ -66,11 +66,12 @@ function searchBook(book, searchId) {
     var moreInfo = document.createElement('a');
 
     // add classes to elements
-    bookItem.className = 'col-xs-12 col-md-6 col-lg-4 list-group-item';
+    bookItem.className = 'card col-xs-3 col-md-4 list-group-item';
     wrapper.className = 'list-group-item-wrapper';
-    moreInfo.className = 'btn btn-primary';
-    controls.className = 'col-md-12';
-    bookInfo.className = 'col-md-4';
+    newImg.className = 'col-md-2';
+    moreInfo.className = 'btn btn-custom row';
+    controls.className = 'row';
+    bookInfo.className = 'col-md-4 col-xs-6';
     addButton.className = 'btn_add glyphicon iconBtn glyphicon-plus';
 
     // add text to tags
@@ -105,10 +106,10 @@ function searchBook(book, searchId) {
     controls.appendChild(addButton);
     bookInfo.appendChild(title);
     bookInfo.appendChild(author);
-    bookInfo.appendChild(moreInfo);
-    wrapper.appendChild(controls);
     wrapper.appendChild(newImg);
+    wrapper.appendChild(controls);
     wrapper.appendChild(bookInfo);
+    wrapper.appendChild(moreInfo);
     bookItem.appendChild(wrapper);
 
     // add results to the screen

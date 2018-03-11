@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="distribution" content="web">
+    <meta property="og:site_name" content="MY Reads" />
+    <meta name="description" content="Book app for logging Your Reads, view stats and find new books">
+    <meta name="keywords" content="Book,Reads,Stats,Search,Organize">
+    <meta name="author" content="Linus Brännström">
     <title>@ViewBag.Title - My Reads</title>
     <!--Custom Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -29,16 +34,14 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li>@Html.Partial("_LoginPartial")</li>
+                        <li id="navItems">@Html.Partial("_LoginPartial")</li>
                         <li class="page-scroll">
                             <!-- user input -->
                             <div class="userInput">
-                                <input id="searchInput" placeholder="Title or Author" value="@ViewBag.Search" autofocus />
+                                <label for="searchInput" class="hidden">New: </label>
+                                <input name="navSearch" id="searchInput" placeholder="Title or Author" value="@ViewBag.Search" autofocus />
                                 <!-- user submit -->
-                                <button for="searchInput" class="icon iconBtn" id="searchBtn" onclick="bookSearch()"><span class="white-custom"><i class="glyphicon glyphicon-search" id="searchIcon"></i></span></button>
+                                <button class="icon iconBtn" id="searchBtn" onclick="bookSearch()"><span class="white-custom"><i class="glyphicon glyphicon-search" id="searchIcon"></i></span></button>
                             </div>
                         </li>
                     </ul>
@@ -47,13 +50,13 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-        <div>
+        <main>
             @RenderBody()
             <hr />
             <footer>
                 <p>&copy; @DateTime.Now.Year - My Reads</p>
             </footer>
-        </div>
+        </main>
 
     </div>
     @Scripts.Render("~/bundles/jquery")
